@@ -1,0 +1,16 @@
+ {% extends 'rango/rango_base.html' %}
+
+ {% block title_block %}
+ About Page{% endblock %}
+ {% block body_block %}
+<h1>This is about page of Rango.</h1>
+this is {{ visits }} times you visit our site. last time is {{ last_visit_cookie }}.<br/>
+<div>
+<strong>{{ boldmessage }}</strong><br />
+</div>
+<div>
+<img  src="{{ MEDIA_URL }}cat.gif" alt="picture from media" />
+<button class="btn btn-primary" id="about-btn">
+Click Me - I'm JavaScript on Speed</button>
+<div id="msg">Hello - I'm here for a JQuery Example too</div>
+{% endblock %}

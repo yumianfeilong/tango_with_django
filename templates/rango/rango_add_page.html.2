@@ -1,0 +1,25 @@
+{% extends 'rango/rango_base.html' %}
+
+{% block title_block %}
+ Add New Page
+{% endblock %}
+ {% block body_block %}
+ {% if category %}
+   <h1>Add a New Page to {{ category.name }} </h1>
+   <div>
+   <form id="page_form" method="post" action="/rango/category/{{ category.slug }}/add_page/">
+ {% csrf_token %}
+ {% for hidden in form.hidden_fields %}
+ {{ hidden }}
+ {% endfor %}
+ {% for field in form.visible_fields %}
+ {{ field.errors }}
+ {{ field.help_text }}
+{{ field }}
+ {% endfor %}
+ <input type="submit" name="submit" value="Create Page" />
+ </form>
+ </div>
+{% else %} Please return back to choose a valid category.
+{% endif %}
+{% endblock %}
